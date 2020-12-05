@@ -23,20 +23,19 @@ fn main() {
     let mut dp_tables: Vec<Vec<u64>> = (0..n-1).map(|_| (0..=MAX).map(|_| 0).collect()).collect();
 
     dp_tables[0][nums[0]] = 1;
-    for i in 0..n-2 {
+    for i in 1..n-1 {
         for j in 0..=MAX {
             let added_num = (j as i32) + (nums[i] as i32);
             let subtracted_num = (j as i32) - (nums[i] as i32);
 
             if added_num <= MAX as i32 {
-                dp_tables[i + 1][added_num as usize] += dp_tables[i][j]
+                dp_tables[i][j] += dp_tables[i - 1][added_num as usize];
             }
 
             if 0 <= subtracted_num {
-                dp_tables[i + 1][subtracted_num as usize] += dp_tables[i][j];
+                dp_tables[i][j] += dp_tables[i - 1][subtracted_num as usize];
             }
         }
     }
-
     println!("{}", dp_tables[n - 2][result]);
 }
