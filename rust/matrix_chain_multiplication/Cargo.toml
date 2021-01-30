@@ -1,0 +1,9 @@
+[package]
+name = "matrix_chain_multiplication"
+version = "0.1.0"
+authors = ["pphos <coc4h8conhc6h12nh@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
