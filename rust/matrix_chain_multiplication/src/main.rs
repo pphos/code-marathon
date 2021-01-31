@@ -18,7 +18,7 @@ fn main() {
     let matrix: Vec<Vec<usize>> = (0..n).map(|_| (0..2).map(|_| read::<usize>()).collect()).collect();
     let mut dp: Vec<Vec<usize>> = vec![vec![0; n]; n];
 
-    for i in (0..n).rev() {
+    for i in (0..n - 1).rev() {
         for j in (i + 1)..n {
             dp[i][j] = (i..j).map(|k| dp[i][k] + dp[k + 1][j] + matrix[i][0] * matrix[k][1] * matrix[j][1]).min().unwrap();
         }
