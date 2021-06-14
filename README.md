@@ -1,2 +1,1 @@
-# atcoder
-my atcoder solutions
+# アルゴリズムの訓練をするためのリポジトリ
